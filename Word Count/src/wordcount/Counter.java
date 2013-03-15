@@ -12,17 +12,31 @@ import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * It gives top 5 words.
+ * @author ramsharan
+ *
+ */
 public class Counter {
 	private File readFile_;
 	private File outputFile_;
 	private final int NUMBEROFOUTPUT = 5;//top 5
 	private ArrayList<WordPlusCounter> wordPlusCounterList_;
 	
+	/**
+	 * 
+	 * @param readFile
+	 * @param outputFile
+	 */
 	public Counter(File readFile, File outputFile){
 		readFile_=readFile;
 		outputFile_=outputFile;
 		wordPlusCounterList_ = new ArrayList<>();
 	}
+	/**
+	 * 
+	 * @throws IOException
+	 */
 	public void operate() throws IOException{
 		BufferedReader fileReader = new BufferedReader(new FileReader(readFile_));
 		String line;
@@ -51,6 +65,10 @@ public class Counter {
 		}
 		fileWriter.close();
 	}
+	/**
+	 * 
+	 * @param word
+	 */
 	protected void insertWord(String word){
 		WordPlusCounter wordPlusCounter;
 		boolean isFound=false;
@@ -69,7 +87,11 @@ public class Counter {
 	}
 	
 }
-
+/**
+ * 
+ * @author ramsharan
+ *
+ */
 class WordPlusCounter {
 	public String word;
 	public int counter;
